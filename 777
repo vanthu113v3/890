@@ -1,0 +1,31 @@
+import random
+
+def guess_number_game():
+    print("Chào mừng bạn đến với trò chơi Đoán Số!")
+    print("Máy tính sẽ chọn một số ngẫu nhiên từ 1 đến 100.")
+    
+    # Máy tính chọn số ngẫu nhiên
+    secret_number = random.randint(1, 100)
+    
+    attempts = 0  # Đếm số lần đoán
+    while True:
+        # Người chơi nhập số
+        try:
+            guess = int(input("Nhập số bạn đoán: "))
+        except ValueError:
+            print("Vui lòng nhập một số hợp lệ.")
+            continue
+        
+        attempts += 1  # Tăng số lần đoán
+        
+        # Kiểm tra số đoán
+        if guess < secret_number:
+            print("Số bạn đoán quá nhỏ!")
+        elif guess > secret_number:
+            print("Số bạn đoán quá lớn!")
+        else:
+            print(f"Chúc mừng! Bạn đã đoán đúng số {secret_number} sau {attempts} lần đoán.")
+            break
+
+# Chạy game
+guess_number_game()
